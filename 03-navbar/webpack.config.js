@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
 	output: {
-		publicPath: "http://localhost:8081/",
+		publicPath: "https://spontaneous-selkie-40ccc5.netlify.app/",
 	},
 
 	resolve: {
@@ -12,7 +12,7 @@ module.exports = (_, argv) => ({
 	},
 
 	devServer: {
-		port: 8081,
+		port: 3001,
 		historyApiFallback: true,
 	},
 
