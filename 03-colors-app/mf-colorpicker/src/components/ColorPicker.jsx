@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-const ColorPicker = () => {
-	const [color, setColor] = useState("#000000");
-
-	function handleSubmitSaveColor(e) {
-		e.preventDefault();
-		alert(`Color seleccionado: ${color}`)
-	}
+const ColorPicker = ({
+	color,
+	handleChangeColor,
+	handleSubmitSaveColor,
+}) => {
 
 	return (
 		<form onSubmit={handleSubmitSaveColor}>
@@ -16,7 +14,7 @@ const ColorPicker = () => {
 				style={{ width: "100%", height: "200px" }}
 				title="Selecciona un color..."
 				value={color}
-				onChange={(e) => setColor(e.target.value)}
+				onChange={handleChangeColor}
 			/>
 
 			<div className="text-center">
@@ -32,7 +30,9 @@ const ColorPicker = () => {
 					></div>
 					{color}
 				</h2>
-				<button type="submit" className="btn btn-success">Guardar Color</button>
+				<button type="submit" className="btn btn-success">
+					Guardar Color
+				</button>
 			</div>
 		</form>
 	);

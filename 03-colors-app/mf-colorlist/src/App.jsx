@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import ColorList from "./components/ColorList";
 
@@ -9,4 +8,4 @@ const App = () => (
     <ColorList />
   </div>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

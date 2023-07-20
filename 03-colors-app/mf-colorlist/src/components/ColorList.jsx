@@ -1,22 +1,20 @@
 import React from "react";
 
-const ColorList = () => {
-	const colorsList = ["#000000", "#FF0000", "#00FF00", "#0000FF"];
-
+const ColorList = ({ colorsList }) => {
 	return (
 		<div className="list-group text-center">
-			{colorsList.map((color, index) => (
+			{colorsList.length ? colorsList.map((color, index) => (
 				<button
-                         key={index}
-                         type="button"
+					key={index}
+					type="button"
 					className="list-group-item list-group-item-action text-white"
-                         aria-current="true"
-                         title="Copiar"
-                         style={{ backgroundColor: color, fontWeight: "bolder" }}
-                    >
+					aria-current="true"
+					title="Copiar"
+					style={{ backgroundColor: color, fontWeight: "bolder" }}
+				>
 					{color}
 				</button>
-			))}
+			)) : <div className="alert alert-danger" role="alert"><b>Sin elementos</b></div>}
 		</div>
 	);
 };
