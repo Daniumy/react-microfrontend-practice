@@ -5,7 +5,7 @@ import ColorList from "./components/ColorList";
 
 const App = () => (
   <div className="container">
-    <ColorList />
+    <ColorList colorsList={["#021333", "#f1288c", "#81eec1"]}/>
   </div>
 );
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("app")).render(<App />);

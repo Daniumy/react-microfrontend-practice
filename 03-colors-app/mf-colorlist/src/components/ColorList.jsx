@@ -1,6 +1,21 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const ColorList = ({ colorsList }) => {
+
+	function handleCopyColor(color) {
+		navigator.clipboard.writeText(color);
+		Swal.fire({
+			title: "Copiado!",
+			text: `El color ${color} ha sido copiado al portapapeles`,
+			icon: "success",
+			position: "top-end",
+			showConfirmButton: false,
+			timer: 2000,
+			timerProgressBar: true,
+		})
+	};
+
 	return (
 		<div className="list-group text-center">
 			{colorsList.length ? colorsList.map((color, index) => (
@@ -11,6 +26,7 @@ const ColorList = ({ colorsList }) => {
 					aria-current="true"
 					title="Copiar"
 					style={{ backgroundColor: color, fontWeight: "bolder" }}
+					onClick={() => handleCopyColor(color)}
 				>
 					{color}
 				</button>
