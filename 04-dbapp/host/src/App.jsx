@@ -1,14 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.scss";
+import HomePage from "./pages/HomePage";
+import PersonajesPage from "./pages/PersonajesPage";
+import AboutPage from "./pages/AboutPage";
+import NotFound from "./pages/NotFound";
+import Navbar from "mf_navbar/Navbar";
 
 const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl">
-    <div>Name: host</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Tailwind</div>
-  </div>
+  <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/personajes" element={<PersonajesPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+	</BrowserRouter>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+
+ReactDOM.createRoot(document.getElementById("app")).render(<App />);
